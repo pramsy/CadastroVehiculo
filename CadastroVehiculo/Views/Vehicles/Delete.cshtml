@@ -1,0 +1,53 @@
+﻿@model CadastroVehiculo.Models.Vehicle
+@{
+    ViewData["Title"] = "Excluir";
+}
+<h3> Tem certeza que quer excluir este vehiculo ?</h3>
+ <hr />
+<div>  
+   
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Modelo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleModel)
+        </dd>
+        <dt class = "col-sm-2">
+           Marca
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleBrand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VehicleNomberOfDoors)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleNomberOfDoors)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VehicleYearOfManifacture)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleYearOfManifacture.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            Tipo de Cambio
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gearbox.GearboxType)
+        </dd>
+        <dt class = "col-sm-2">
+           Tipo de Combustivel
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fuel.FuelType)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="VehicleId" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> 
+        <a class="btn btn-outline-info" asp-action="Index">Volte para a lista</a>
+    </form>
+</div>

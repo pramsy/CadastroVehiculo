@@ -1,0 +1,53 @@
+﻿@model CadastroVehiculo.Models.Vehicle
+@{
+    ViewData["Title"] = "Detalhes";
+}
+<p>
+    <h2>Detalhes do Veiculo </h2>
+</p>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Modelo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleModel)
+        </dd>
+        <dt class = "col-sm-2">
+          Marca
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleBrand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VehicleNomberOfDoors)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleNomberOfDoors)
+        </dd>
+        <dt class = "col-sm-2">
+          Ano de Fabricacao
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleYearOfManifacture.Year)
+        </dd>
+        <dt class = "col-sm-2">
+           Cambio
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gearbox.GearboxType)
+        </dd>
+        <dt class = "col-sm-2">
+           Combustivel
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fuel.FuelType)
+        </dd>
+    </dl>
+</div>
+<div>
+    
+    <a class="btn btn-outline-info" asp-controller="Vehicles" asp-action="Edit" asp-route-id="@Model?.VehicleId">Editar </a>
+    
+     <a class="btn btn-outline-info" asp-controller="Vehicles" asp-action="Index">Retornar na lista</a>
+</div>

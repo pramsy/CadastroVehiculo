@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CadastroVehiculo.Models.Vehicle>
+@{
+    ViewData["Title"] = "Lista";
+}
+@if (Model.Count() == 0)
+{
+   <h1 class="text-lg-center ">Nenhum Vehiculo encontrado</h1> 
+}
+else
+{
+<h2 class="text-lg-center ">Lista dos Vehiculos Cadastrados</h2>
+<p>   
+     <a class="btn btn-outline-info text-lg-center" asp-controller="Vehicles" asp-action="Create">Cadastrar Novo</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Modelo
+            </th>
+            <th>
+               Marca
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleNomberOfDoors)
+            </th>
+            <th>
+               Ano 
+            </th>
+            <th>
+               Cambio
+            </th>
+            <th>
+              Combustivel
+            </th>
+            <th>Edita </th>
+            <th>Detalhes</th>
+            <th> Excluir </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleBrand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleNomberOfDoors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleYearOfManifacture.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gearbox.GearboxType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fuel.FuelType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VehicleId">
+                    <img src="~/images/pencil-square.svg"/>
+                </a> 
+                </td>
+                <td>
+                <a asp-action="Details" asp-route-id="@item.VehicleId">
+                    <img src="~/images/ticket-detailed.svg"/>
+                </a>
+                </td>
+                <td>
+                <a asp-action="Delete" asp-route-id="@item.VehicleId">
+                    <img src="~/images/trash-fill.svg"/>
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}
